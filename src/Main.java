@@ -25,17 +25,147 @@ public class Main
             if(!isSwap) break;
         }
     }
+    static void selectionsort(int [] arr)
+    {
+        int n=arr.length;
+
+        for(int i=0;i<n-1;i++)
+        {
+            int min=i;
+
+            for(int j=i+1;j<n;j++)
+            {
+                if(arr[j] < arr[min]) min=j;
+            }
+
+            int temp=arr[min];
+            arr[min]=arr[i];
+            arr[i]=temp;
+        }
+
+    }
+
+    static void insertionsort(int [] arr)
+    {
+        int n=arr.length;
+        for(int i=0;i<n;i++)
+        {
+            int j=i;
+            while(j >0 && arr[j-1] > arr[j])
+            {
+                int temp=arr[j-1];
+                arr[j-1]=arr[j];
+                arr[j]=temp;
+                j--;
+            }
+        }
+    }
+    static void pattern1(int n)
+    {
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+    static void pattern2(int n)
+    {
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<=i;j++)
+            {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+    static void pattern3(int n)
+    {
+        for(int i=1;i<=n;i++)
+        {
+          for(int j=1;j<=i;j++) System.out.print(j+" ");
+            System.out.println();
+        }
+    }
+    static void pattern4(int n)
+    {
+        for(int i=1;i<=n;i++)
+        {
+            for(int j=1;j<=i;j++) System.out.print(i+" ");
+            System.out.println();
+        }
+    }
+    static void pattern5(int n)
+    {
+        for(int i=1;i<=n;i++)
+        {
+            for(int j=1;j<=n-i+1;j++) System.out.print( j+" ");
+            System.out.println();
+        }
+    }
+    static void pattern7(int n)
+    {
+        for(int i=1;i<=n;i++)
+        {
+            for(int j=1;j<=n-i;j++ ) System.out.print(" ");
+            for(int j=1;j<=i*2-1;j++) System.out.print("*");
+            System.out.println();
+        }
+    }
+
+    // pattern 8 reverse pyramid
+    static void pattern8(int n)
+    {
+        for(int i=1;i<=n;i++)
+        {
+            // sapce
+            for(int j=1;j<i-1;j++)System.out.print(" ");
+            // stars
+            for(int j=1;j<=2*n-(2*i-1);j++) System.out.print("*");
+            System.out.println();
+        }
+    }
+   static  void printDiamond(int n) {
+        for(int i=1;i<=n;i++)
+        {
+            // space
+            for(int j=1;j<=n-i;j++)System.out.print(" ");
+            for(int j=1;j<=i;j++)System.out.print("* ");
+            System.out.println();
+        }
+
+        for(int i=1;i<=n;i++)
+        {
+            for(int j=1;j<i;j++) System.out.print(" ");
+
+            for(int j=0;j<=n-i;j++) System.out.print("* ");
+            System.out.println();
+        }
+    }
+    static void pattern10(int n) {
+        for(int i=1;i<2*n;i++)
+        {
+            if(i<=n) for(int j=1;j<=i;j++) System.out.print("* ");
+            else for(int j=1;j<=2*n-i;j++) System.out.print("* ");
+
+            System.out.println();
+        }
+
+    }
     public static void main(String[] args) {
 
-        int arr[]={5,8,3,16,12,66,4};
-        //selection sort
-//        selectionSort sc= new selectionSort();
-//        int newarr []=  sc.selectsort(arr);
+        int arr[]={13,9,12,7,35,6,24};
 
-        bubblesort(arr);
-
-      for(int i=0;i<arr.length;i++)
-          System.out.println(arr[i]);
+//        selectionsort(arr);
+//        bubblesort(arr);
+//        insertionsort(arr);
+//      for(int i=0;i<arr.length;i++)
+//          System.out.println(arr[i]);
+//
+        pattern10(5);
 
     }
 }
