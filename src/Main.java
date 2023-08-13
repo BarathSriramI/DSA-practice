@@ -155,6 +155,78 @@ public class Main
         }
 
     }
+
+    static void pattern11(int n) {
+        int start=1;
+        for(int i=1;i<=n;i++)
+        {
+            if(i%2!=0) start=1;
+            else start=0;
+            for(int j=1;j<=i;j++)
+            {
+                System.out.print(start+" ");
+                start=1-start;
+            }
+            System.out.println();
+        }
+    }
+     static void pattern12(int N) {
+        // code here
+        int spaces = 2*(N-1);
+
+        // Outer loop for the number of rows.
+        for(int i=1;i<=N;i++){
+
+            // for printing numbers in each row
+            for(int j=1;j<=i;j++){
+                System.out.print(j+" ");
+            }
+
+            // for printing spaces in each row
+            for(int j = 1;j<=spaces;j++){
+                System.out.print(" "+" ");
+            }
+
+            // for printing numbers in each row
+            for(int j=i;j>=1;j--){
+                System.out.print(j+" ");
+            }
+
+            // As soon as the numbers for each iteration are printed, we move to the
+            // next row and give a line break otherwise all numbers
+            // would get printed in 1 line.
+            System.out.println();
+
+            // After each iteration nos. increase by 2, thus
+            // spaces will decrement by 2.
+            spaces-=2;
+        }
+    }
+   static  void pattern13(int n) {
+
+        int counter =1;
+
+        for(int i=1;i<=n;i++)
+        {
+            for(int j=1;j<=i;j++)
+            {
+                System.out.print(counter+" ");
+                counter++;
+
+            }
+            System.out.println();
+        }
+    }
+
+    static void pattern14(int n) {
+
+        for(int i=1;i<=n;i++)
+        {
+            for(char ch='A';ch <'A'+i;ch++)
+                System.out.print(ch);
+            System.out.println();
+        }
+    }
     public static void main(String[] args) {
 
         int arr[]={13,9,12,7,35,6,24};
@@ -165,7 +237,7 @@ public class Main
 //      for(int i=0;i<arr.length;i++)
 //          System.out.println(arr[i]);
 //
-        pattern10(5);
+        pattern14(5);
 
     }
 }
