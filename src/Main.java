@@ -2,6 +2,7 @@
 // then press Enter. You can now see whitespace characters in your code.
 
 
+import java.util.ArrayList;
 
 public class Main
 {
@@ -227,17 +228,83 @@ public class Main
             System.out.println();
         }
     }
+    static void pattern16(int n) {
+        for(int i=0;i<n;i++)
+        {
+
+            for(int j=0;j<=i;j++)
+            {
+                System.out.print((char)(int)('A'+i));
+            }
+
+            System.out.println();
+        }
+    }
+    static  void merge(int arr[],int low,int mid,int high)
+    {
+        ArrayList<Integer> temp =new ArrayList<>();
+
+        int left = low;
+        int right=mid+1;
+
+
+        while(left <= mid && right <=high)
+        {
+            if(arr[left] <= arr[right])
+            {
+                temp.add(arr[left]);
+                left++;
+            }
+            else
+            {
+                temp.add(arr[right]);
+                right++;
+            }
+        }
+
+        while(left <=mid)
+        {
+            temp.add(arr[left]);
+            left++;
+        }
+        while(right <=high)
+        {
+            temp.add(arr[right]);
+            right++;
+
+        }
+
+        for(int i=low;i<=high;i++)
+        {
+            arr[i]=temp.get(i-low);
+        }
+
+    }
+
+    static void mS(int arr[],int low,int high)
+    {
+        if(low == high ) return;
+
+        int mid=(low + high)/2;
+
+        mS(arr,low,mid);
+        mS(arr,mid+1,high);
+        merge(arr,low,mid,high);
+    }
     public static void main(String[] args) {
 
-        int arr[]={13,9,12,7,35,6,24};
+        int arr[]={12,2,35,65,9,1,35};
 
+        int n=arr.length;
 //        selectionsort(arr);
 //        bubblesort(arr);
 //        insertionsort(arr);
-//      for(int i=0;i<arr.length;i++)
-//          System.out.println(arr[i]);
-//
-        pattern14(5);
+        mS(arr,0,n-1);
+
+      for(int i=0;i<arr.length;i++)
+          System.out.println(arr[i]);
+
+//        pattern16(5);
 
     }
 }
